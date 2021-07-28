@@ -21,6 +21,11 @@ jobs:
           java-version: "11"
           distribution: "adopt"
 
+      - uses: actions/cache@v2
+        with:
+          path: ~/.m2
+          key: ${{ hashFiles('pom.xml') }}
+
       - run: mvn test
 
   package:
